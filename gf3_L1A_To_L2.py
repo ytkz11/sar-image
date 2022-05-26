@@ -10,7 +10,6 @@ import warnings
 # Cancel the warning
 warnings.filterwarnings ('ignore')
 
-
 # File name pattern matching
 def Get_File_Name(pathlog):
     os.chdir (pathlog)
