@@ -1,14 +1,20 @@
-## 1.Introduction
+## 1.How to produce 1L of data to 2L of data
 
-​		It mainly records the pauli decomposition of fully polarized synthetic aperture radar visualization (false color synthesis of SAR).
+
 
 ## 2.Pauli Decomposition
 
+
+
+## 3.Pauli Decomposition
+
+​		It mainly records the pauli decomposition of fully polarized synthetic aperture radar visualization (false color synthesis of SAR).		
+
 ​		The Pauli decomposition uses the so-called Pauli basis to represent the measured scattering matrix [S]. If we consider the conventional orthogonal linear basis (h, v), under normal circumstances, the Pauli basis consists of four 2×2 matrices, and the specific formulas are not listed here. Please search for relevant papers on Google.
 
-## 3.Visualization 
+​	Take Gaofen No. 3 as an example, calculate its backscattering coefficient, geometrically correct it, and then perform pauli decomposition and false-color image synthesis.
 
-​		Take Gaofen No. 3 as an example, calculate its backscattering coefficient, geometrically correct it, and then perform pauli decomposition and false-color image synthesis.
+[Sample data](https://drive.google.com/file/d/1leBeDtRLFN2SBA0IwhJWe3Et-0gPTEIN/view?usp=sharing) 
 
 ### Experiment-raw data
 
