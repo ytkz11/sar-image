@@ -9,17 +9,15 @@ Take GF3 for example.
 Acquisition of calibration constants
 
 The calibration constant is determined by using an angular reflector and an active scaler whose calibration field has known the radar cross-sectional area.
-$$
-K = |P^I-P_NG_{img2}|/\sigma_c        \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \      (1)
-$$
+
+[![XEildK.png](https://s1.ax1x.com/2022/05/26/XEildK.png)](https://imgtu.com/i/XEildK)
 
 where：
 
-$P^I= I^2+Q^2 $ Corresponding to the power of active scaler or Angle reflector in SAR complex image, I and Q correspond to the real and imaginary parts of class 1A complex image respectively
-$$
-P_N:Echo noise power;G_{img2}：Image processing gain of noise;
-sigma_c：Point target RCS;K:Calibration constant
-$$
+P^I= I^2+Q^2  Corresponding to the power of active scaler or Angle reflector in SAR complex image, I and Q correspond to the real and imaginary parts of class 1A complex image respectively
+
+
+
 The equivalent backscattering coefficient of Gaofen-3 satellite is as follows:
 
 1) Resolution of 1m~10m, imaging edge is better than -19dB;
@@ -27,71 +25,32 @@ The equivalent backscattering coefficient of Gaofen-3 satellite is as follows:
 2) The resolution is 25m~500m, the imaging center is better than -25dB, and the imaging edge is better than -21dB.
 
 Therefore, ignoring the impact of noise, the above equation can be simplified as:
-$$
-K = P^I/\sigma_c        \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \      (2)
-$$
-Replace each parameter with a dB value, i.e				
-$$
-K_{dB} = 10log_{10}P^I-10log_{10}\sigma_c        \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \      (3)
-$$
+
+[![XEiKqx.png](https://s1.ax1x.com/2022/05/26/XEiKqx.png)](https://imgtu.com/i/XEiKqx)
+
+Replace each parameter with a dB value, i.e
+
+[![XEius1.png](https://s1.ax1x.com/2022/05/26/XEius1.png)](https://imgtu.com/i/XEius1)
 
 In the product metadata file, the field CalibrationConst corresponds to KdB.	
 
 ### Use of Calibration constant		
 
 The backscattering coefficient can be calculated according to the following relationship:
-$$
-\sigma_{dB}^0 = 10log_{10}(P^I*(QualifyValue/32767)^2-K_{dB}        \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \      (4)
-$$
 
-In the L1A image, where
-$$
-P^I= I^2+Q^2
-$$
+[![XEiQZ6.png](https://s1.ax1x.com/2022/05/26/XEiQZ6.png)](https://imgtu.com/i/XEiQZ6)
 
 I is the real part of grade 1A product, Q is the virtual part of grade 1A product, QualifyValue is the maximum value of the scene image before quantization, which can be obtained through the metadata file field.
-$$
-\sigma_{dB}^0 = 10log_{10}(P^I*(QualifyValue/65535)^2-K_{dB}        \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \      (5)
-$$
 
-In the L1B image, where
-$$
-P^I= I^2+Q^2
-$$
+[![XEi1IO.png](https://s1.ax1x.com/2022/05/26/XEi1IO.png)](https://imgtu.com/i/XEi1IO)
 
 DN is the real part of grade 1A product, I is the virtual part of grade 1A product, QualifyValue is the maximum value of the scene image before quantization, which can be obtained through the metadata file field.
 
-The quantization formula of level 2 image is the same as that of Level L1B, as shown in Equation (5), where
-$$
-P^I= DN^2
-$$
-Note: For multi-polarization and full-polarization images, QualifyValue of each polarization image is different, so it needs to be searched under QulifyValue. Take the corresponding field of a certain landscape wave mode as an example, as shown below:
-
-![5KwCmn.png](https://z3.ax1x.com/2021/10/13/5KwCmn.png)
-
-For example, when quantizing HH image, the corresponding value of QulifyValue should be 32.469337.
+[![XEi8iD.png](https://s1.ax1x.com/2022/05/26/XEi8iD.png)](https://imgtu.com/i/XEi8iD)For example, when quantizing HH image, the corresponding value of QulifyValue should be 32.469337.
 
 ### From grade 1A to 1B calculation formula
 
-$$
-DN = sqrt(I^2+Q^2)/32767*QualifyValue_1A/QualifyValue_1B*65535
-$$
-
-where，I: Real part of grade 1A products;
-
-Q: Imaginary part of class 1A product;
-
-QualifyValue_1A: Level 1A normalized peak;
-
-DN: Range of class 1B products;
-
-QualifyValue_1B: Normalized peak value of class 1B product, which can be obtained from the Class 1B product meta-information file or from the following calculation formula:
-
-下计算公式得到：
-$$
-QualifyValue_1B = max(sqrt(I^2+Q^2)/32767*QualifyValue_1A)
-$$
-QualifyValue_1B is the maximum value after the amplitude of each pixel of grade 1A product.
+[![XEFxun.png](https://s1.ax1x.com/2022/05/26/XEFxun.png)](https://imgtu.com/i/XEFxun)
 
 ### The conversion from 1BL to 2L
 
@@ -99,7 +58,7 @@ Orthophoto correction module using GDAL RPC
 
 
 
-## 2.Pauli Decomposition
+## 2.Some applications
 
 
 
