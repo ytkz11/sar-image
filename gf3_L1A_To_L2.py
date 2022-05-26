@@ -421,7 +421,7 @@ def geometric_correction(file ,outputpath):
 
 
 if __name__ == '__main__':
-    inputpath = 'X:\DengKaiYuan\henan\GF3\GF3_SAY_FSII_025440_E113.7_N35.0_20210609_L1A_HHHV_L10005692177'
+    inputpath = 'xxxx\GF3_SAY_FSII_025440_E113.7_N35.0_20210609_L1A_HHHV_L10005692177'
     outputpath = inputpath+'_output'
     if not os.path.exists (outputpath):
         os.mkdir(outputpath)
