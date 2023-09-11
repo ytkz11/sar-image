@@ -50,8 +50,6 @@ def Get_QualifyValue_And_Calibration(xmlfile):
     tree = ET.parse (xmlfile)
     # Gets elements in an XML file
     root = tree.getroot ()
-    # print (root[17][13][2].tag)  # VH   QualifyValue
-    # print (root[17][13][3].tag)  # VV   QualifyValue
 
     # The QualifyValue parameter is in 13 of the 17 child
 
@@ -68,15 +66,7 @@ def Get_QualifyValue_And_Calibration(xmlfile):
         else:
             i = np.NAN
             QualifyValue_new.append (i)
-    # HH_QualifyValue=float(HH_QualifyValue)
-    # HV_QualifyValue=float(HV_QualifyValue)
-    # VH_QualifyValue=float(VH_QualifyValue)
-    # VV_QualifyValue=float(VV_QualifyValue)
 
-    # CalibrationConst参数位于18个child的3个child中
-    # One to four are respectively HH\HV\VH\VV
-    # print (root[18][3][2].tag)  # HV   CalibrationConst
-    # print (root[18][3][3].tag)  # VV   CalibrationConst
     HH_CalibrationConst = root[18][3][0].text
     HV_CalibrationConst = root[18][3][1].text
     VH_CalibrationConst = root[18][3][2].text
@@ -411,7 +401,7 @@ def geometric_correction(file ,outputpath):
     dataset.SetMetadata(rpc, 'RPC')
     gdal.Warp(out_filename, dataset, dstSRS='EPSG:4326', xRes=0.0002, yRes=0.0002,
                        rpc=True,
-                       transformerOptions=[r'RPC_DEM=C:\LXL\ENVI53\data\GMTED2010.jp2'])
+                       transformerOptions=[r'path of your dem file'])
     print('completed：', out_filename)
     del dataset
 
